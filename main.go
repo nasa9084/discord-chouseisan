@@ -38,7 +38,7 @@ func execute() error {
 			return
 		}
 
-		if !strings.HasPrefix(m.Content, fmt.Sprintf("<@!%s>", m.State.User.ID)) {
+		if !strings.HasPrefix(m.Content, fmt.Sprintf("<@!%s>", s.State.User.ID)) {
 			return
 		}
 
