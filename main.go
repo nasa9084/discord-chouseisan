@@ -32,12 +32,10 @@ func main() {
 }
 
 func execute() error {
-	discord, err := discordgo.New()
+	discord, err := discordgo.New(token)
 	if err != nil {
 		return fmt.Errorf("creating new session: %w", err)
 	}
-
-	discord.Token = token
 
 	discord.AddHandler(func(s *discordgo.Session, r *discordgo.Ready) {
 		log.Println("bot is ready")
