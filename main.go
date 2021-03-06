@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -37,11 +38,11 @@ func execute() error {
 			return
 		}
 
-		log.Print(m.Content)
-
-		if m.Content == "ping" {
-			s.ChannelMessageSend(m.ChannelID, "Pong!")
+		if !strings.HasPrefix(m.Content, fmt.Sprintf("<@!%s>", m.State.User.ID)) {
+			return
 		}
+
+		log.Print("mentioned")
 
 	})
 
