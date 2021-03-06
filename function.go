@@ -2,6 +2,7 @@ package p
 
 import (
 	"crypto/ed25519"
+	"log"
 	"net/http"
 	"os"
 
