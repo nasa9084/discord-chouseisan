@@ -21,6 +21,8 @@ func init() {
 
 // Handler is a http handler for Cloud Functions.
 func Handler(w http.ResponseWriter, r *http.Request) {
+	log.Print("incoming request")
+
 	if !discordgo.VerifyInteraction(r, applicationPublicKey) {
 		w.WriteHeader(http.StatusUnauthorized)
 		w.Write([]byte("invalid request signature"))
