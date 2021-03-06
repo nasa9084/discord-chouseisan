@@ -31,6 +31,11 @@ func execute() error {
 		log.Println("bot is ready")
 	})
 
+	if err := discord.Open(); err != nil {
+		return fmt.Errorf("opening websocket connection")
+	}
+	defer discord.Close()
+
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt)
 	<-stop
