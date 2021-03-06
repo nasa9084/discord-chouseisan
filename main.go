@@ -51,6 +51,7 @@ func execute() error {
 	}
 	defer discord.Close()
 
+	log.Print("register hello command")
 	if _, err := discord.ApplicationCommandCreate(
 		discord.State.User.ID,
 		guildID,
