@@ -10,8 +10,7 @@ import (
 )
 
 var (
-	token   = "Bot " + os.Getenv("BOT_TOKEN")
-	guildID = os.Getenv("GUILD_ID")
+	token = "Bot " + os.Getenv("BOT_TOKEN")
 )
 
 var commandHandlers = map[string]func(s *discordgo.Session, i *discordgo.InteractionCreate){
@@ -57,7 +56,7 @@ func execute() error {
 	log.Print("register hello command")
 	if _, err := discord.ApplicationCommandCreate(
 		discord.State.User.ID,
-		guildID,
+		"",
 		&discordgo.ApplicationCommand{
 			Name:        "hello",
 			Description: "Say Hello",
