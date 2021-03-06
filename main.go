@@ -37,6 +37,8 @@ func execute() error {
 			return
 		}
 
+		log.Print(m.Content)
+
 		if m.Content == "ping" {
 			s.ChannelMessageSend(m.ChannelID, "Pong!")
 		}
