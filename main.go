@@ -54,7 +54,7 @@ func execute() error {
 
 	if _, err := discord.ApplicationCommandCreate(
 		discord.State.User.ID,
-		nil,
+		"",
 		&discordgo.ApplicationCommand{
 			Name:        "hello",
 			Description: "Say Hello",
