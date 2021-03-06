@@ -2,6 +2,7 @@ package p
 
 import (
 	"crypto/ed25519"
+	"encoding/hex"
 	"log"
 	"net/http"
 	"os"
@@ -17,7 +18,12 @@ func init() {
 		panic("environment variable APPLICATION_PUBLICKEY is not set")
 	}
 
-	applicationPublicKey = ed25519.PublicKey([]byte(appPubKeyEnv))
+	decoded, err := hex.DecodeString(appPubKeyEnv)
+	if err != nil {
+		panic("decoding APPLICATION_PUBLICKEY")
+	}
+
+	applicationPublicKey = ed25519.PublicKey(decoded)
 }
 
 // Handler is a http handler for Cloud Functions.
