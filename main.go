@@ -26,6 +26,9 @@ var commandHandlers = map[string]func(s *discordgo.Session, i *discordgo.Interac
 }
 
 func main() {
+	log.Print("start")
+	defer log.Print("end")
+
 	if err := execute(); err != nil {
 		log.Fatal(err)
 	}
