@@ -1,1 +1,1 @@
-worker: discord_chouseisan
+worker: discord-chouseisan
